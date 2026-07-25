@@ -1,0 +1,695 @@
+/* ==========================
+   RESET
+========================== */
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #2563eb;
+    --primary-hover: #1d4ed8;
+    --success: #16a34a;
+    --danger: #dc2626;
+    --warning: #f59e0b;
+
+    --bg: #f5f7fb;
+    --surface: #ffffff;
+
+    --text: #1f2937;
+    --text-light: #6b7280;
+
+    --border: #e5e7eb;
+
+    --shadow:
+        0 8px 24px rgba(0,0,0,.08);
+
+    --radius: 14px;
+    --transition: .25s ease;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Be Vietnam Pro", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+}
+
+/* ==========================
+   COMMON
+========================== */
+
+.hidden {
+    display: none !important;
+}
+
+.container {
+    width: min(1200px, 92%);
+    margin: auto;
+}
+
+/* ==========================
+   HEADER
+========================== */
+
+.header {
+    background: var(--surface);
+    box-shadow: var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 20px;
+
+    padding: 18px 0;
+}
+
+.logo {
+    color: var(--primary);
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* ==========================
+   SEARCH
+========================== */
+
+#searchInput {
+    width: 260px;
+
+    padding: 12px 15px;
+
+    border-radius: 10px;
+    border: 1px solid var(--border);
+
+    outline: none;
+
+    transition: var(--transition);
+
+    font-size: 15px;
+}
+
+#searchInput:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(37,99,235,.15);
+}
+
+/* ==========================
+   BUTTON
+========================== */
+
+button {
+    cursor: pointer;
+
+    border: none;
+
+    border-radius: 10px;
+
+    padding: 11px 18px;
+
+    font-size: 15px;
+
+    transition: var(--transition);
+}
+
+button:hover {
+    transform: translateY(-2px);
+}
+
+#adminBtn {
+    background: var(--primary);
+    color: #fff;
+}
+
+#adminBtn:hover {
+    background: var(--primary-hover);
+}
+
+/* ==========================
+   MAIN
+========================== */
+
+main {
+    padding: 35px 0 50px;
+}
+
+/* ==========================
+   PRODUCT GRID
+========================== */
+
+.product-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fill,minmax(260px,1fr));
+
+    gap: 24px;
+
+}
+
+/* ==========================
+   PRODUCT CARD
+========================== */
+
+.product-card {
+
+    background: var(--surface);
+
+    border-radius: var(--radius);
+
+    overflow: hidden;
+
+    box-shadow: var(--shadow);
+
+    transition: var(--transition);
+
+    display: flex;
+
+    flex-direction: column;
+
+}
+
+.product-card:hover {
+
+    transform: translateY(-5px);
+
+}
+
+.product-image {
+
+    width: 100%;
+
+    height: 220px;
+
+    object-fit: cover;
+
+    background: #eee;
+
+}
+
+.product-body {
+
+    padding: 18px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+
+    flex: 1;
+
+}
+
+.product-title {
+
+    font-size: 18px;
+
+    font-weight: 600;
+
+    line-height: 1.4;
+
+}
+
+.product-price {
+
+    color: var(--danger);
+
+    font-size: 22px;
+
+    font-weight: 700;
+
+}
+
+.product-description {
+
+    color: var(--text-light);
+
+    font-size: 14px;
+
+    line-height: 1.6;
+
+    flex: 1;
+
+}
+
+.product-actions {
+
+    display: flex;
+
+    gap: 10px;
+
+    margin-top: 10px;
+
+}
+
+.btn-edit {
+
+    flex: 1;
+
+    background: var(--warning);
+
+    color: white;
+
+}
+
+.btn-edit:hover {
+
+    background: #d97706;
+
+}
+
+.btn-delete {
+
+    flex: 1;
+
+    background: var(--danger);
+
+    color: white;
+
+}
+
+.btn-delete:hover {
+
+    background: #b91c1c;
+
+}
+
+/* ==========================
+   EMPTY
+========================== */
+
+.empty {
+
+    text-align: center;
+
+    padding: 70px 20px;
+
+    color: var(--text-light);
+
+    font-size: 18px;
+
+}
+
+/* ==========================
+   IMAGE PREVIEW
+========================== */
+
+#imagePreview {
+
+    margin-top: 15px;
+
+}
+
+#imagePreview img {
+
+    width: 100%;
+
+    max-width: 220px;
+
+    border-radius: 10px;
+
+    border: 1px solid var(--border);
+
+}/* ==========================
+   MODAL
+========================== */
+
+.modal {
+    position: fixed;
+    inset: 0;
+
+    background: rgba(0, 0, 0, .45);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+
+    z-index: 999;
+}
+
+.modal-content {
+    width: 100%;
+    max-width: 500px;
+
+    background: var(--surface);
+
+    border-radius: var(--radius);
+
+    box-shadow: var(--shadow);
+
+    padding: 28px;
+
+    animation: modalShow .25s ease;
+}
+
+.modal-content.admin {
+    max-width: 650px;
+}
+
+.modal-content h2 {
+    margin-bottom: 22px;
+    text-align: center;
+    color: var(--primary);
+}
+
+/* ==========================
+   FORM
+========================== */
+
+.modal-content input,
+.modal-content textarea {
+    width: 100%;
+
+    margin-bottom: 16px;
+
+    padding: 12px 15px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 10px;
+
+    outline: none;
+
+    transition: var(--transition);
+
+    font-size: 15px;
+
+    font-family: inherit;
+}
+
+.modal-content textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.modal-content input:focus,
+.modal-content textarea:focus {
+    border-color: var(--primary);
+
+    box-shadow: 0 0 0 3px rgba(37,99,235,.15);
+}
+
+/* ==========================
+   ACTION BUTTONS
+========================== */
+
+.modal-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.modal-actions button {
+    flex: 1;
+}
+
+#loginBtn,
+#saveProduct {
+    background: var(--success);
+    color: white;
+}
+
+#loginBtn:hover,
+#saveProduct:hover {
+    background: #15803d;
+}
+
+#closeLogin,
+#cancelEdit {
+    background: #6b7280;
+    color: white;
+}
+
+#closeLogin:hover,
+#cancelEdit:hover {
+    background: #4b5563;
+}
+
+#logoutBtn {
+    background: var(--danger);
+    color: white;
+}
+
+#logoutBtn:hover {
+    background: #b91c1c;
+}
+
+/* ==========================
+   LOADING
+========================== */
+
+.loading {
+    position: fixed;
+    inset: 0;
+
+    background: rgba(255,255,255,.7);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 9999;
+}
+
+.loader {
+    width: 55px;
+    height: 55px;
+
+    border: 6px solid #ddd;
+    border-top-color: var(--primary);
+
+    border-radius: 50%;
+
+    animation: spin .8s linear infinite;
+}
+
+/* ==========================
+   TOAST
+========================== */
+
+#toast {
+    position: fixed;
+
+    right: 20px;
+    bottom: 20px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    z-index: 99999;
+}
+
+.toast-item {
+    min-width: 260px;
+
+    padding: 14px 18px;
+
+    color: white;
+
+    border-radius: 10px;
+
+    box-shadow: var(--shadow);
+
+    animation: toastShow .25s ease;
+}
+
+.toast-success {
+    background: var(--success);
+}
+
+.toast-error {
+    background: var(--danger);
+}
+
+.toast-warning {
+    background: var(--warning);
+}
+
+/* ==========================
+   SCROLLBAR
+========================== */
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #eee;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #bdbdbd;
+    border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #999;
+}
+
+/* ==========================
+   ANIMATIONS
+========================== */
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes modalShow {
+    from {
+        opacity: 0;
+        transform: scale(.92);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes toastShow {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* ==========================
+   RESPONSIVE
+========================== */
+
+@media (max-width: 992px) {
+
+    .product-grid {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    .header .container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .header-right {
+        flex-direction: column;
+    }
+
+    #searchInput {
+        width: 100%;
+    }
+
+    #adminBtn {
+        width: 100%;
+    }
+
+    .product-image {
+        height: 200px;
+    }
+
+    .modal-content {
+        padding: 20px;
+    }
+
+}
+
+@media (max-width: 576px) {
+
+    .logo {
+        font-size: 24px;
+        text-align: center;
+    }
+
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .product-actions {
+        flex-direction: column;
+    }
+
+    .modal-actions {
+        flex-direction: column;
+    }
+
+    .toast-item {
+        min-width: unset;
+        width: 100%;
+    }
+
+    #toast {
+        left: 15px;
+        right: 15px;
+        bottom: 15px;
+    }
+
+}
+
+/* ==========================
+   UTILITIES
+========================== */
+
+.text-center {
+    text-align: center;
+}
+
+.mt-10 {
+    margin-top: 10px;
+}
+
+.mt-20 {
+    margin-top: 20px;
+}
+
+.mb-10 {
+    margin-bottom: 10px;
+}
+
+.mb-20 {
+    margin-bottom: 20px;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+.shadow {
+    box-shadow: var(--shadow);
+}
+
+.rounded {
+    border-radius: var(--radius);
+}
