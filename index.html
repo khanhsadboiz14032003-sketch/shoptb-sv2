@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop TB SV2</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Loading -->
+    <div id="loading" class="loading hidden">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Toast -->
+    <div id="toast"></div>
+
+    <!-- Header -->
+    <header class="header">
+
+        <div class="container">
+
+            <h1 class="logo">
+                Shop TB SV2
+            </h1>
+
+            <div class="header-right">
+
+                <input
+                    id="searchInput"
+                    type="text"
+                    placeholder="Tìm sản phẩm...">
+
+                <button id="adminBtn">
+                    Admin
+                </button>
+
+            </div>
+
+        </div>
+
+    </header>
+
+    <!-- Main -->
+    <main class="container">
+
+        <section id="productList" class="product-grid">
+
+            <!-- script.js render -->
+
+        </section>
+
+    </main>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal hidden">
+
+        <div class="modal-content">
+
+            <h2>Đăng nhập Admin</h2>
+
+            <input
+                id="username"
+                type="text"
+                placeholder="Tài khoản">
+
+            <input
+                id="password"
+                type="password"
+                placeholder="Mật khẩu">
+
+            <div class="modal-actions">
+
+                <button id="loginBtn">
+                    Đăng nhập
+                </button>
+
+                <button id="closeLogin">
+                    Đóng
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Admin Panel -->
+    <div id="adminPanel" class="modal hidden">
+
+        <div class="modal-content admin">
+
+            <h2>Quản lý sản phẩm</h2>
+
+            <input
+                id="productName"
+                type="text"
+                placeholder="Tên sản phẩm">
+
+            <input
+                id="productPrice"
+                type="number"
+                placeholder="Giá">
+
+            <input
+                id="productImage"
+                type="file"
+                accept="image/*">
+
+            <textarea
+                id="productDescription"
+                placeholder="Mô tả"></textarea>
+
+            <div class="modal-actions">
+
+                <button id="saveProduct">
+                    Lưu
+                </button>
+
+                <button id="cancelEdit">
+                    Hủy
+                </button>
+
+                <button id="logoutBtn">
+                    Đăng xuất
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Preview -->
+    <div id="imagePreview" class="hidden"></div>
+
+    <script type="module" src="script.js"></script>
+
+</body>
+
+</html>
